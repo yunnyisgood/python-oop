@@ -1,5 +1,6 @@
 class bmiCalculation:
-    def setdataBMI(self, weight, meter):
+
+    def __init__(self, weight, meter):
         self.weight = weight
         self.meter = meter
 
@@ -8,6 +9,5 @@ class bmiCalculation:
 
 
 if __name__ == '__main__':
-    b = bmiCalculation()
-    b.setdataBMI(60, 1.6)
+    b = bmiCalculation(60, 1.6)
     print(round(b.BMI(),1))
