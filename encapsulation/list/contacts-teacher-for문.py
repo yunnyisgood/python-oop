@@ -43,11 +43,11 @@ class Contacts(object):
 
             elif menu == 4:  # 삭제 기능자체가 finite -> 그럼 while이 아닌 for문을 사용
                 edit_name = input('수정할 이름: ')
-                edit_info = Contacts(input('이름'), input('전화번호'), input('이메일'), input('주소'))
+                edit_info = Contacts(edit_name, input('전화번호'), input('이메일'), input('주소'))
                 for i, j in enumerate(ls):
                     if j.name == edit_name:
-                        del ls[i]
-                        ls.append(edit_info)
+                        del ls[i]  # 먼저 기존의 정보를 지우고
+                        ls.append(edit_info)  # 새로 수정한 정보를 추가한다.
 
             else:
                 print('다시 입력해주세요')

@@ -1,5 +1,5 @@
 class Stock:
-    def __init__(self, name, code, PER, PBR, stock_yield ):
+    def __init__(self, name, code, PER, PBR, stock_yield):
         self.name = name
         self.code = code
         self.PER = PER
@@ -16,7 +16,7 @@ class Stock:
     def main():
         stock_lists = []
         while True:
-            select = input('0. 종료\n 1. 입력\n 2.출력\n 3.삭제')
+            select = input('0. 종료\n 1. 입력\n 2.출력\n 3.수정\n 4.삭제')
             if select == '0':
                print('프로그램이 종료됩니다')
                break
@@ -28,11 +28,18 @@ class Stock:
                     print(f'생성된 주식의 {i.get_stocks()}')
 
             elif select == '3':
+                edit_name = input('수정할 종목 이름을 입력하세요')
+                edit_info = Stock(edit_name, input('종목코드'), float(input('PBR')), float(input('PER')), float(input('배당수익률')))
+                for i, j in enumerate(stock_lists):
+                    if j.name == edit_name:
+                        del stock_lists[i]
+                        stock_lists.append(edit_info)
+
+            elif select == '4':
                 del_name = input('삭제할 종목 이름을 입력하세요')
                 for i, j in enumerate(stock_lists):
                     if j.name == del_name:
                         del stock_lists[i]  # 이 때 del 변수명은 list의 인덱스를 사용하여 삭제할 때 사용한다
-
             else:
                 print('다시 입력하세요')
                 continue  # 없어도 실행은 되지만, 문법적으로 해두도록!
