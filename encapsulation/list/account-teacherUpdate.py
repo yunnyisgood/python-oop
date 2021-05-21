@@ -47,10 +47,16 @@ class Account(object):
 
 
     @staticmethod
-    def account_update(account_lists, balance, acc_number):
+    def account_update(account_lists, balance, acc_number, select):
         for i, j in enumerate(account_lists):
             if j.acc_number == acc_number:  # 입금한 계좌번호가 리스트에 있다면
                 Account.del_accounts(account_lists, acc_number)
+                if select == 3:
+                    replace = Account(j.customer, int(j.balance) + int(j.balance), j.acc_number)
+                    account_lists.append(replace)
+                elif select == 4:
+                    replace = Account(j.customer, int(j.balance) - int(j.balance), j.acc_number)
+                    account_lists.append(replace)
 
 
     @staticmethod
@@ -74,16 +80,12 @@ class Account(object):
             elif select == '3':
                 acc_number = input('입금할 계좌번호를 입력하세요')
                 balance = input('입금액 입력하세요')
-                account.account_update(account_lists, balance, acc_number)
-                replace = Account(account.customer, int(account.balance) + int(account.balance), account.acc_number)
-                account_lists.append(replace)
+                account.account_update(account_lists, balance, acc_number, select)
 
             elif select == '4':
                 acc_number = input('출금할 계좌번호를 입력하세요')
                 balance = input('입금액 입력하세요')
-                account.account_update(account_lists, balance, acc_number)
-                replace = Account(account.customer, int(account.balance) - int(account.balance), account.acc_number)
-                account_lists.append(replace)
+                account.account_update(account_lists, balance, acc_number, select)
 
             elif select == '5':
                 Account.del_accounts(account_lists, input('삭제할 계좌번호를 입력하세요'))
