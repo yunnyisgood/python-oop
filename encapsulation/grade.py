@@ -42,5 +42,5 @@ class Grade:
         # print(f'{g.kor}+{g.math}+{g.eng}={g.sum()}')
         # print(f'({g.kor}+{g.math}+{g.eng})/3={g.avg()}')
 
-
+        #  hi
 Grade.main()
