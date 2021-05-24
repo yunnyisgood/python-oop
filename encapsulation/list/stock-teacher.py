@@ -51,7 +51,7 @@ class Stock:
             else:
                 print('다시 입력하세요')
                 continue  # 없어도 실행은 되지만, 문법적으로 해두도록!
-#                 test
+#                 test3
 
 
 Stock.main()
